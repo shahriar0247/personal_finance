@@ -10,8 +10,7 @@ def random_num():
 @app.route( "/" )
 def main():
     random_number_for_css = random_num()
-    
-    return render_template( main/main.html , random_number_for_css=random_number_for_css)
+    return render_template( "main/main.html" , random_number_for_css=random_number_for_css)
 
 @app.route("/addtrans" , methods=[ "POST" , "GET" ])
 def add_trans():
@@ -28,6 +27,14 @@ def add_trans():
 
     random_number_for_css = random_num()    
     return render_template( "trans/add.html" , random_number_for_css=random_number_for_css)
+
+@app.route( "/viewtrans" )
+def view_trans():
+    with sqlite3.connect( "database.db" ) as conn:
+        all_trans = conn.cursor().execute("select * from transactions").fetchall()
+        print(all_trans)
+    random_number_for_css = random_num()
+    return render_template( "trans/view.html" , random_number_for_css=random_number_for_css, all_trans=all_trans)
 
        
     
