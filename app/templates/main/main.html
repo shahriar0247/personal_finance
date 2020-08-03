@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Finance Manager</title>
     <link rel="stylesheet" href="static/main/main.css?q={{random_number_for_css}}">
 </head>
+
 <body>
     <div class="a">
-        <div class="a1"><h2>Finance Manger</h2></div>
+        <div class="a1">
+            <h2>Finance Manger</h2>
+        </div>
     </div>
     <div class="b">
         <div class="b1">
-            <div class="view_trans">
-                <a href="/viewtrans">View Transactions</a>
+            <div class="b11 b1div">
+                <a href="/viewexpen">
+                    <div class="view_expen">
+                        View expenses
+                    </div>
+                </a>
+                <a href="/addexpen">
+                    <div class="add_expen">
+                        Add expense
+                    </div>
+                </a>
+                <a href="/expexpen">
+                    <div class="exp_expen">
+                        Export expense
+                    </div>
+                </a>
             </div>
-            <div class="add_trans">
-                <a href="/addtrans">Add Transaction</a>
-            </div>
-            <div class="exp_trans">
-                <a href="trans/exp.html">Export Transaction</a>
+            <div class="b12 b1div">
+                <a href="/viewincome">
+                    <div class="view_expen">
+                        View incomes
+                    </div>
+                </a>
+
+                <a href="/addincome">
+                    <div class="add_expen">Add income
+                    </div>
+                </a>
+                <a href="/expincome">
+                    <div class="exp_expen">
+                        Export income
+                    </div>
+                </a>
             </div>
         </div>
         <div class="b2">
@@ -28,4 +57,5 @@
 
     </div>
 </body>
+
 </html>

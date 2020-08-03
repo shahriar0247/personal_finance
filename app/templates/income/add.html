@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Finance Manager</title>
+    <link rel="stylesheet" href="static/income/add.css?q={{random_number_for_css}}">
+</head>
+
+<body>
+    <div class="a">
+        <div class="a1">
+            <h2>Finance Manger</h2>
+        </div>
+    </div>
+    <div class="b">
+        <div class="b1">
+            <form action="/addincome" method="POST" id="expen">
+                <h3>Income</h3>
+                <div class="incomes">
+                    <div class="date">
+                        <p>Date</p>
+                        <input type="date" name="date">
+                    </div>
+                    <div class="amount">
+                        <p>Amount</p>
+                        <input type="number" name="amount">
+                    </div>
+                    <div class="account">
+                        <p>Account</p>
+                        <input type="text" name="account">
+                    </div>
+                    <div class="tags">
+                        <p>Tags</p>
+                        <input type="text" name="tags">
+                    </div>
+                </div>
+                <h3>Details</h3>
+                <div class="details">
+                    <div class="category dropdown">
+                        <p>Category</p>
+                        <input type="text" name="category">
+                        <ul class="dropdown_ul">
+                            <li>Category 1</li>
+
+                        </ul>
+                        <script src="static/dropdown.js">
+                          
+                        </script>
+                    </div>
+                    <div class="notes">
+                        <p>Notes</p>
+                        <textarea name="notes"></textarea>
+                    </div>
+
+                    <input type="submit" value="Submit" id="submit">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="c">
+
+    </div>
+</body>
+
+</html>

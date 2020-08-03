@@ -10,4 +10,6 @@ conn, cursor = database.create_db()
 database.create_table(conn, cursor)
 
 
-from app import user_views
+from app import main_view
+from app import exp_view
+from app import income_view

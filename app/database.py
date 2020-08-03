@@ -8,6 +8,7 @@ def create_db():
     
 
 def create_table(conn, cursor):
-    cursor.execute("create table if not exists transactions (date text, name text, amount text, account text, category text, notes text)")
+    cursor.execute("create table if not exists expenses (date text, name text, amount text, destination text, category text, notes text)")
+    cursor.execute("create table if not exists income (date text, name text, amount text, destination text, category text, notes text)")
     conn.commit()
     return
