@@ -3,10 +3,11 @@
 
 <head>
     <title>Finance Manager</title>
-    <link rel="stylesheet" href="static/income/add.css?q={{random_number_for_css}}">
+    <link rel="stylesheet" href="static/all/add.css?q={{random_number_for_css}}">
 </head>
 
 <body>
+    <div class="dropdown_block"></div>
     <div class="a">
         <div class="a1">
             <h2>Finance Manger</h2>
@@ -29,23 +30,74 @@
                         <p>Account</p>
                         <input type="text" name="account">
                     </div>
-                    <div class="tags">
+                    <div class="tags dropdown">
                         <p>Tags</p>
-                        <input type="text" name="tags">
+                        <input type="text" name="tags" class="dropdown_text">
+                        <ul class="dropdown_ul">
+                            {% for a in range(0,10) %}
+
+                            <li id="dropdown_item_{{loop.index}}">Category {{loop.index}}</li>
+    
+                            {% endfor %}
+                        </ul>
+
+
                     </div>
+                    <div class="tags dropdown">
+                        <p>Tags</p>
+                        <input type="text" name="tags" class="dropdown_text">
+                        <ul class="dropdown_ul">
+                            {% for a in range(0,10) %}
+
+                            <li id="dropdown_item_{{loop.index}}">Category {{loop.index}}</li>
+    
+                            {% endfor %}
+                        </ul>
+
+
+                    </div>
+                    <script>
+                        dropdown = document.getElementsByClassName("dropdown")
+                        dropdown_ul = document.getElementsByClassName("dropdown_ul")
+                        dropdown_block = document.getElementsByClassName("dropdown_block")
+                        dropdown_text = document.getElementsByClassName("dropdown_text")
+
+                        console.log(dropdown)
+                        console.log(dropdown_ul)
+                       
+                        {% for a in range(0,2) %}
+                        dropdown["{{a}}"].addEventListener("click", function(){
+                            dropdown_block[0].style.display = "block"
+                            dropdown_ul["{{a}}"].style.opacity = "1"
+                        })
+                        
+                      
+                        dropdown_block[0].addEventListener("click", function(){
+                            dropdown_ul["{{a}}"].style.opacity = "0"
+                            dropdown_block[0].style.display = "none"
+                        })
+                        
+                        {% for b in range(0,10) %}
+                        console.log("doing drop ul {{a}}")
+                        dropdown_ul["{{a}}"].children["{{b}}"].addEventListener("click", function(){
+                            dropdown_text["{{a}}"].value = dropdown_ul["{{a}}"].children["{{b}}"].innerText
+                        })  
+                        {% endfor %}
+
+                       {% endfor %}
+                  
+                    
+                    </script>
+
+
                 </div>
                 <h3>Details</h3>
                 <div class="details">
-                    <div class="category dropdown">
+                    <div class="category">
                         <p>Category</p>
                         <input type="text" name="category">
-                        <ul class="dropdown_ul">
-                            <li>Category 1</li>
 
-                        </ul>
-                        <script src="static/dropdown.js">
-                          
-                        </script>
+
                     </div>
                     <div class="notes">
                         <p>Notes</p>
