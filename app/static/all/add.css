@@ -17,20 +17,23 @@ body {
 }
 
 .b {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
     margin: 20px;
 }
 
 .b1 {
     box-shadow: 0 0 2px 1px #2824ff79;
     border-radius: 5px;
+
+    padding: 20px;
+    width: 700px;
 }
 
 .b1 div div {
     display: flex;
     border: 1px solid #2824ff79;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
     background-color: white;
     width: fit-content;
     transition: 200ms all;
@@ -65,6 +68,7 @@ body {
 }
 
 .b1 h3 {
+    margin: 0;
     margin-left: 30px;
 }
 
@@ -97,7 +101,7 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
-.incomes {
+.layouts {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 70%;
@@ -113,10 +117,10 @@ body {
     color: white;
     border: 0;
     border-radius: 4px;
-    margin-left: 20px;
+   
     transition: 200ms all;
-    margin-bottom: 20px;
-    width: 96%;
+    
+    width: 100%;
 }
 
 #submit:hover {
@@ -125,23 +129,48 @@ body {
 
 .dropdown_ul {
     position: absolute;
-    margin-left: 140px;
+    margin-left: 80px;
     margin-top: 30px;
     list-style: none;
-    color: blue;
-    padding: 10px;
+    z-index: -1;
     opacity: 1;
     transition: all 200ms;
    cursor: default;
    opacity: 0;
+   border: 2px solid black;
+   width: 200px;
+   padding: 0;
+   background-color: rgb(255, 255, 255);
 }
 
 .dropdown_ul li {
-    width: 100%;
+    
     text-align: center;
     padding: 10px;
-    border: 1px solid #423fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-top: none;
+    
+    color: rgb(24, 24, 24);
+}
+
+.dropdown_ul li:hover{
+    background-color: rgb(207, 207, 207);
+}
+
+.dropdown_ul li:active{
+    background-color: rgb(172, 172, 172);
+}
+
+.dropdown_ul li p{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dropdown_ul li p:nth-child(2){
+    margin-top: 3px;
+    margin-left: 10px;
+    font-size: 80%;
 }
 
 #submit:active {
@@ -158,6 +187,29 @@ body {
 }
 .dropdown_ul_shown {
     opacity: 1 !important;
-   
+    
 
+}
+
+.current_categories{
+    list-style: none;
+    padding: 0;
+}
+.current_categories li{
+    background: blue;
+    color: white;
+    width: 300px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.current_categories li p{
+    margin: 0;
+    padding: 0;
+}
+
+.current_categories li p:nth-child(2){
+    margin-top: 3px;
+    margin-left: 10px;
+    font-size: 80%;
 }
