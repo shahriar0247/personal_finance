@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Finance Manager</title>
+    <link rel="stylesheet" href="static/all/add.css?q={{random_number_for_css}}">
+<link rel="stylesheet" href="static/head/head.css?q={{random_number_for_css}}">
+</head>
+
+<body>
+    <div class="dropdown_block"></div>
+    <div class="a">
+        <div class="a1">
+            <h2>Finance Manger</h2>
+        </div>
+    </div>
+    <div class="b">
+        <div class="b0"><h4 id="error">{{error}}</h4></div>
+        <div class="b1">
+            <form action="/addaccount" method="POST" id="categ">
+                <h3>Create Account</h3>
+                <div class="tags">
+                    <div class="stuff_name">
+                        <p>Name</p>
+                        <input type="text" name="stuff_name">
+                    </div>
+                    <div class="stuff_des">
+                        <p>Description</p>
+                        <input type="text" name="stuff_des">
+                    </div>
+
+
+                    <div class="account_type dropdown">
+                        <p>Account Type</p>
+                        <input type="text" name="account_type" class="dropdown_text" readonly>
+                        <ul class="dropdown_ul ul_tags">
+                            <li id="dropdown_item_0">
+
+                                <p>Bank</p>
+
+                            </li>
+                            <li id="dropdown_item_1">
+
+                                <p>Credit</p>
+
+                            </li>
+                            <li id="dropdown_item_2">
+
+                                <p>Cash</p>
+
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+                    <div class="account_balance">
+                        <p>Beginning Balance</p>
+                        <input type="number" name="account_balance">
+                    </div>
+                    <div class="date">
+                        <p>Beginning Balance Date</p>
+                        <input type="date" name="account_date">
+                    </div>
+                    <input type="submit" value="Create account" id="submit">
+
+            </form>
+        </div>
+        <div class="b2">
+            <h4>Current Accounts</h4>
+            <ul class="current_categories table">
+             
+                <li>
+               <p>Name</p>
+               <p>Description</p>
+               <p>Type</p>
+               
+               <p>Beginning Balance</p>
+               <p>Balance Date</p>
+               
+
+            
+            </li>
+            
+               
+              
+            </ul>
+            <ul class="current_categories">
+                {% for a in all_stuff %}
+                <li>
+                    <p>{{a[0]}}</p>
+                    <p>{{a[1]}}</p>
+                    <p>{{a[2]}}</p>
+                    <p>{{a[3]}}</p>
+                    <p>{{a[4]}}</p>
+                </li>
+            
+               
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+    </div>
+    <div class="c">
+
+    </div>
+
+    <script>
+        dropdown = document.getElementsByClassName("dropdown")
+        dropdown_ul = document.getElementsByClassName("dropdown_ul")
+        dropdown_block = document.getElementsByClassName("dropdown_block")
+        dropdown_text = document.getElementsByClassName("dropdown_text")
+        ul_tags = document.getElementsByClassName("ul_tags")
+        ul_categories = document.getElementsByClassName("ul_categories")
+
+        console.log(dropdown)
+        console.log(dropdown_ul)
+
+        {% for a in range(0, 1) %}
+
+        dropdown["{{a}}"].addEventListener("click", function () {
+            dropdown_block[0].style.display = "block"
+            dropdown_ul["{{a}}"].style.opacity = "1"
+            dropdown_ul["{{a}}"].style.zIndex = "1"
+        })
+
+
+        dropdown_block[0].addEventListener("click", function () {
+            dropdown_ul["{{a}}"].style.opacity = "0"
+            dropdown_ul["{{a}}"].style.zIndex = "-1"
+            dropdown_block[0].style.display = "none"
+        })
+
+
+
+
+        {% endfor %}
+
+        {% for b in range(0, 3 * 2) %}
+        dropdown_ul[0].children["{{b}}"].addEventListener("click", function () {
+            dropdown_text[0].value = dropdown_ul[0].children["{{b}}"].getElementsByTagName("p")[0].innerText
+        })
+        {% endfor %}
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

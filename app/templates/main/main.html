@@ -3,6 +3,8 @@
 
 <head>
     <title>Finance Manager</title>
+    
+<link rel="stylesheet" href="static/head/head.css?q={{random_number_for_css}}">
     <link rel="stylesheet" href="static/main/main.css?q={{random_number_for_css}}">
 </head>
 
@@ -14,43 +16,94 @@
     </div>
     <div class="b">
         <div class="b1">
+            <h3>Expense</h3>
             <div class="b11 b1div">
+
                 <a href="/viewexpen">
                     <div class="view_expen">
+                        <img src="/static/icons/agenda.png">
                         View expenses
                     </div>
                 </a>
                 <a href="/addexpen">
                     <div class="add_expen">
+                        <img src="static/icons/plus (1).png">
                         Add expense
                     </div>
                 </a>
                 <a href="/expexpen">
                     <div class="exp_expen">
+                        <img src="static/icons/share.png">
                         Export expense
                     </div>
                 </a>
             </div>
+            <h3>Income</h3>
             <div class="b12 b1div">
+
                 <a href="/viewincome">
                     <div class="view_expen">
+                        <img src="/static/icons/agenda.png">
                         View incomes
                     </div>
                 </a>
 
                 <a href="/addincome">
-                    <div class="add_expen">Add income
+                    <div class="add_expen">
+                        <img src="static/icons/plus (1).png">
+                        Add income
                     </div>
                 </a>
                 <a href="/expincome">
                     <div class="exp_expen">
+                        <img src="static/icons/share.png">
                         Export income
+                    </div>
+                </a>
+            </div>
+            <h3>Add items</h3>
+            <div class="b12 b1div">
+
+                <a href="/addcategory">
+                    <div class="addcategory">
+                        Add category
+                    </div>
+                </a>
+
+                <a href="/addaccount">
+                    <div class="addaccount">Add account
+                    </div>
+                </a>
+                <a href="/addtag">
+                    <div class="addtag">
+                        Add tags
                     </div>
                 </a>
             </div>
         </div>
         <div class="b2">
-            total balance
+            <div class="b21">
+                <div class="balance">
+                <div class="all_balance">
+                    <h4>Account Balance</h4>
+                    <p>{{all_balance}}</p>
+                </div>
+                <div class="individual_balance">
+                    <div class="cash_balance">
+                        <h4>Cash</h4>
+                        <p>{{all_cash_balance}}</p>
+                    </div>
+                    <div class="bank_balance">
+                        <h4>Bank</h4>
+                        {{all_bank_balance}}
+                    </div>
+                    <div class="credit_balance">
+                        <h4>Credit</h4>
+                        <p>{{all_credit_balance}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="c">

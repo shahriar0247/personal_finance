@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+$accent: rgb(59, 105, 255);
+
+.b {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.b1 {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.493);
+    border-radius: 5px;
+    margin-right: 20px;
+    width: min-content;
+    padding: 40px;
+}
+
+.b1div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+
+}
+
+.b1 div a div {
+    display: grid;
+
+}
+
+.b1 div a {
+    background-color: $accent;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 130px;
+    transition: 200ms background;
+    margin: 10px;
+}
+
+.b1 div a:hover {
+    background-color: rgb(42, 92, 255);
+
+
+}
+
+.b1 div a:active {
+    background-color: rgb(19, 74, 255);
+}
+
+.b1div a div img {
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.b {
+    padding-left: 30px;
+}
+
+.balance {
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.493);
+    text-align: center;
+}
+
+.all_balance {
+    border-bottom: 1px solid black;
+    width: fit-content;
+    margin: auto;
+
+}
+
+.account_balance p {
+    font-size: 110%;
+}
+
+.individual_balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+
+@media(max-width: 1200px) {
+    .individual_balance {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width: 1100px) {
+    .b1div {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .b1div a:nth-child(3) {
+        width: 190%;
+    }
+
+    .b1 {
+        width: auto;
+
+    }
+}
+
+@media(max-width: 830px) {
+    .b {
+        grid-template-columns: 1fr;
+
+    }
+
+    .b1div {
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+
+    .b1 {
+        width: 90%;
+        border: 1px solid rgba(0, 0, 0, 0.39);
+    }
+
+    .b1 div a {
+        width: 90%;
+    }
+
+    .b1div a:nth-child(3) {
+        width: auto;
+    }
+
+}
+
+@media(max-width: 680px) {
+    .b1div {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .b1div a:nth-child(3) {
+        width: 190%;
+    }
+
+    .b1 {
+        width: 85%;
+
+    }
+
+}
+
+@media(max-width: 460px) {
+
+    .b1div {
+        grid-template-columns: 1fr;
+    }
+
+    .b1div a:nth-child(3) {
+        width: auto;
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Finance Manager</title>
+    <link rel="stylesheet" href="static/all/add.css?q={{random_number_for_css}}">
+<link rel="stylesheet" href="static/head/head.css?q={{random_number_for_css}}">
+</head>
+
+<body>
+    <div class="a">
+        <div class="a1">
+            <h2>Finance Manger</h2>
+        </div>
+    </div>
+    <div class="b">
+        <div class="b1">
+            <form action="/addcategory" method="POST" id="categ">
+                <h3>Create category</h3>
+                <div class="tags">
+                    <div class="stuff_name">
+                        <p>Name</p>
+                        <input type="text" name="stuff_name">
+                    </div>
+                    <div class="stuff_des">
+                        <p>Description</p>
+                        <input type="text" name="stuff_des">
+                    </div>
+              
+                <input type="submit" value="Create category" id="submit">
+
+            </form>
+        </div>
+        <div class="b2">
+            <h4>Current tags</h4>
+            <ul class="current_categories">
+                {% for a in all_stuff %}
+                <li>
+                    <p>{{a[0]}}</p>
+                    <p>{{a[1]}}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+    </div>
+    <div class="c">
+
+    </div>
+</body>
+
+</html>
