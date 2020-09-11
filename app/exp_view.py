@@ -4,6 +4,7 @@ import random
 from app import database
 import sqlite3
 from app import common_views
+from app.functions import add_to_account
 
 def random_num():
     return random.randint(1, 200)
@@ -24,6 +25,8 @@ def add_expen():
         with sqlite3.connect( "database.db" ) as conn:
             conn.cursor().execute(" insert into expenses values ( ?,?,?,?,?,? )",(date ,  amount , account , tags , category , notes) )
             conn.commit()
+        
+        add_to_account(-int(amount), account)
 
     return common_views.render_add_page("expen/add.html","")
 

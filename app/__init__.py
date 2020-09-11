@@ -1,8 +1,23 @@
 from flask import Flask, render_template
 import sqlite3
+import os
+import sys
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'salkdfjkwaelrjasdksadlmvsadsadsad'
+
+if getattr(sys, 'frozen', False): 
+
+    template_folder = os.path.join(sys._MEIPASS, 'templates') 
+    static_folder = os.path.join(sys._MEIPASS, 'static') 
+
+    print(template_folder) 
+    print(static_folder) 
+
+    app = Flask(__name__, template_folder=template_folder, static_folder=static_folder) 
+
+else: 
+
+    app = Flask(__name__)
+app.config['SECRET_KEY'] = 'salkdfjkwaelrjmvsadsadsad'
 
 from app import database
 
