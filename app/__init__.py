@@ -31,3 +31,4 @@ from app import income_view
 from app import category_view
 from app import tags_view
 from app import accounts_view
+from app import graph_view

@@ -76,6 +76,10 @@ a {
   padding-left: 30px;
 }
 
+.b22 div canvas {
+  max-width: 100%;
+}
+
 .balance {
   padding: 20px;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.493);
@@ -122,6 +126,9 @@ a {
   .b1 {
     width: auto;
   }
+  .b1 div a {
+    width: 90%;
+  }
 }
 
 @media (max-width: 830px) {
@@ -136,9 +143,6 @@ a {
   .b1 {
     width: 90%;
     border: 1px solid rgba(0, 0, 0, 0.39);
-  }
-  .b1 div a {
-    width: 90%;
   }
   .b1div a:nth-child(3) {
     width: auto;

@@ -1,6 +1,7 @@
 import sqlite3
 import random
 from flask import render_template, request
+import calendar
 
 def random_num():
     return random.randint(1, 200)
@@ -59,8 +60,37 @@ def add_stuff(name):
             conn.commit()
 
     all_stuff = get_stuff(name)
-   
 
 
     
     return render_template( name+"/add.html" , random_number_for_css=random_number_for_css, all_stuff=all_stuff)
+
+
+def set_graph(items):
+    items2 = {}
+    for item in items:
+        items2[item[0]] = int(items2.get(item[0], 0)) + int(item[1])
+    items2 = {k: v for k, v in sorted(items2.items(), key=lambda item: item[0])}
+    print(items2)
+    keys = list(items2.keys())
+    values = list(items2.values())
+    return keys, values
+
+def get_month_date(dates):
+    month_dates = []
+    for date in dates:
+        date = date[5:]
+        date = date.split("-")
+        month_dates.append(date[1] +" " + calendar.month_name[int(date[0])][0:3])
+    return month_dates
+
+def get_expenses():
+    with sqlite3.connect( "database.db" ) as conn:
+        all_expenses = conn.cursor().execute("select * from expenses").fetchall()
+    return all_expenses
+
+def get_income():
+    with sqlite3.connect( "database.db" ) as conn:
+        all_income = conn.cursor().execute("select * from income").fetchall()
+    return all_income
+

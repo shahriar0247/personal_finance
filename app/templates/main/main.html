@@ -3,8 +3,8 @@
 
 <head>
     <title>Finance Manager</title>
-    
-<link rel="stylesheet" href="static/head/head.css?q={{random_number_for_css}}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="static/head/head.css?q={{random_number_for_css}}">
     <link rel="stylesheet" href="static/main/main.css?q={{random_number_for_css}}">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="a">
         <div class="a1">
             <a href="..">
-            <img src="static/icons/back.png" alt="">
-            <h2>Finance Manger</h2>
-        </a>
+                <img src="static/icons/back.png" alt="">
+                <h2>Finance Manger</h2>
+            </a>
         </div>
     </div>
     <div class="b">
@@ -87,25 +87,79 @@
         <div class="b2">
             <div class="b21">
                 <div class="balance">
-                <div class="all_balance">
-                    <h4>Account Balance</h4>
-                    <p>{{all_balance}}</p>
-                </div>
-                <div class="individual_balance">
-                    <div class="cash_balance">
-                        <h4>Cash</h4>
-                        <p>{{all_cash_balance}}</p>
+                    <div class="all_balance">
+                        <h4>Account Balance</h4>
+                        <p>{{all_balance}}</p>
                     </div>
-                    <div class="bank_balance">
-                        <h4>Bank</h4>
-                        {{all_bank_balance}}
-                    </div>
-                    <div class="credit_balance">
-                        <h4>Credit</h4>
-                        <p>{{all_credit_balance}}</p>
+                    <div class="individual_balance">
+                        <div class="cash_balance">
+                            <h4>Cash</h4>
+                            <p>{{all_cash_balance}}</p>
+                        </div>
+                        <div class="bank_balance">
+                            <h4>Bank</h4>
+                            {{all_bank_balance}}
+                        </div>
+                        <div class="credit_balance">
+                            <h4>Credit</h4>
+                            <p>{{all_credit_balance}}</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="b22">
+                <div class="graph_expenses">
+                <h3>Expense History</h3>
+                <canvas id="expense_chart"></canvas>
+
+                <script>
+                    var ctx = document.getElementById('expense_chart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        // The type of chart we want to create
+                        type: 'line',
+
+                        // The data for our dataset
+                        data: {
+                            labels: {{ expense_month_dates| tojson}},
+                    datasets: [{
+                        label: 'Expenses',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(200, 99, 132)',
+                        data: {{ expense_amounts| tojson}}
+                            }]
+                        },
+
+                    // Configuration options go here
+                    options: { }
+                    });
+                </script>
                 </div>
+                <div class="graph_expenses">
+                    <h3>Income History</h3>
+                    <canvas id="income_chart"></canvas>
+    
+                    <script>
+                        var ctx = document.getElementById('income_chart').getContext('2d');
+                        var chart = new Chart(ctx, {
+                            // The type of chart we want to create
+                            type: 'line',
+    
+                            // The data for our dataset
+                            data: {
+                                labels: {{ income_month_dates| tojson}},
+                        datasets: [{
+                            label: 'Expenses',
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(200, 99, 132)',
+                            data: {{ income_amounts| tojson}}
+                                }]
+                            },
+    
+                        // Configuration options go here
+                        options: { }
+                        });
+                    </script>
+                    </div>
             </div>
         </div>
     </div>
